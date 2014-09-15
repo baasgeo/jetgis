@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joplin GIS Data Viewer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <!-- Html5shiv resources -->
+    <!--[if lt IE 9]>
+        <script src="src/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Ext resources -->
+    <link rel="stylesheet" type="text/css" href="src/ext/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="src/ext/resources/css/xtheme-gray.css">
+    <script type="text/javascript" src="src/ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="src/ext/ext-all.js"></script>
+
+    <!-- app resources -->
+    <link rel="stylesheet" type="text/css" href="theme/app/style.css">
+    <script type="text/javascript" src="lib/GeoAtlas.js"></script>
+    <script type="text/javascript">
+        <!--
+        Ext.onReady(function() {
+            var username = document.getElementById("username");
+            var password = document.getElementById("password");
+            var login = document.getElementById("loginButton");
+            var error = document.getElementById("error");
+            // TODO: remove this
+            //var date = new Date();
+            //date.setTime(+ date + (20 * 60000)); //60 * 1000
+            //window.document.cookie = "joplinagreed=yes; expires=" + date.toGMTString();
+            Ext.Ajax.request({
+                url: "/geoserver/web/",
+                async: true,
+                method: "POST",
+                success: function (result, options) {
+                    Ext.get('loginButton').on('click', function() {
+                        if (username.value != '' && password.value != '') {
+                            Ext.Ajax.request({
+                                url: "/geoserver/j_spring_security_check?ajax=true",
+                                params: {
+                                    username: username.value,
+                                    password: password.value
+                                },
+                                async: true,
+                                method: "POST",
+                                success: function (result, options) {
+                                    error.style.display = "none";
+                                    if (result.responseText.indexOf("j_spring_security_logout") !=-1) {
+                                        var date = new Date();
+                                        date.setTime(+ date + (20 * 60000)); // 20 minutes
+                                        window.document.cookie = "joplinagreed=yes; expires=" + date.toGMTString();
+                                        window.location.replace("index.html");
+                                    } else {
+                                        error.style.display = "block";
+                                        error.innerHTML = "Login error";
+                                    }
+                                },
+                                failure: function (result, options) {
+                                    error.style.display = "block";
+                                    error.innerHTML = "Server error";
+                                }
+                            });
+                        }
+                    });
+                },
+                failure: function (result, options) {
+                    username.style.display = "none";
+                    password.style.display = "none";
+                    login.style.display = "none";
+                    error.style.display = "block";
+                }
+            });
+        });
+        // -->
+    </script>
+</head>
+<body>
+<div>
+    <div id="title">Joplin GIS Data Viewer</div>
+    <div id="headnav">
+        <a href="mailto:info@baasgeo.com?subject=GeoAtlas">Contact</a>
+    </div>
+</div>
+<div id="message-form">
+
+    <h2>Login and disclaimer</h2>
+
+    <form id="form" action="javascript:void(0);" method="post">
+        <fieldset>
+            <p>Disclaimer: The GIS portal you are about to use contains information that may not have been field verified. Utility data represented is NOT current and may need located. EPA buffer zones near proposed Joplin Trails were sized by individual assumptions, while all EPA buffer zones away from proposed Joplin Trails were left to defaults and have yet to be modified as the JET Project moves forward in environmental phases. Each layer name contains a "source" followed by "date acquired" in parenthesis.
+                <br/><br/>Contact Jared Carey at TSE with any questions.</p>
+            <p id="error" class="error">Error: connecting to GeoServer failed</p>
+            <input type="text" id="username" value="" placeholder="Login name" required />
+            <input type="password" id="password" value="" placeholder="Password" required />
+            <input type="submit" id="loginButton" value="Login and agree" />
+        </fieldset>
+
+    </form>
+
+</div>
+</body>
+</html>

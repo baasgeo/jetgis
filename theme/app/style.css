@@ -1,0 +1,269 @@
+/* setting font fixes combobox rendering issues in IE. See
+ * http://extjs.com/forum/showthread.php?t=72505 */
+body {
+    font-family: helvetica, tahoma, verdana, sans-serif;
+    font-size: 10px;
+    background-color: white;
+}
+
+.x-layout-split {
+    background-color: #ffffff;
+}
+
+/* Extjs overrides */
+/* don't wrap lines on any tooltips */
+.x-tip {
+    white-space: nowrap;
+}
+
+/* white toolbars */
+.x-toolbar {
+    background-color: #ffffff;
+    background-image: none;
+}
+
+.x-panel-body-noheader, .x-panel-mc .x-panel-body {
+    border: none;
+}
+
+.x-panel-noborder .x-panel-bbar-noborder .x-toolbar {
+    border-color: #ffffff;
+}
+
+.x-panel-bbar .x-toolbar, .x-panel-tbar .x-toolbar {
+    border-color: #ffffff;
+}
+
+.x-window-body {
+    background-color: #ffffff;
+}
+
+.x-form-text, textarea.x-form-field {
+    background-image: none;
+}
+/* GeoExt */
+.gx-popup-anc {
+    background: url("img/anchor.png") no-repeat scroll 0 0 transparent;
+    height: 16px;
+    left: 5px;
+    pointer-events: none;
+    position: absolute;
+    width: 31px;
+    z-index: 2;
+}
+.gx-popup-anc.top {
+    background: url("img/anchor-top.png") no-repeat scroll 0 0 transparent;
+    top: -16px;
+}
+.gx-popup-anc.right {
+    left: auto;
+    right: 5px;
+}
+/* GXP overrides */
+.x-btn button {
+    background-size: 24px;
+}
+
+.x-menu-check-item .x-menu-item-icon {
+    background-size: cover;
+}
+/* gxp_addlayers */
+.x-btn .gxp-icon-addlayers, .x-menu-item .gxp-icon-addlayers, .x-tree-node .gxp-icon-addlayers, .x-btn .add {
+    background-image: url(font-awesome/svg/plus26.svg) !important;
+}
+
+/* gxp_layerproperties */
+.x-btn .gxp-icon-layerproperties, .x-menu-item .gxp-icon-layerproperties, .x-tree-node .gxp-icon-layerproperties {
+    background-image: url(font-awesome/svg/open95.svg) !important;
+}
+
+/* gxp_measure */
+.x-btn .gxp-icon-measure, .x-menu-item .gxp-icon-measure, .x-tree-node .gxp-icon-measure {
+    background-image: url(font-awesome/svg/small143.svg) !important;
+}
+
+.x-btn .gxp-icon-measure-length, .x-menu-item .gxp-icon-measure-length, .x-tree-node .gxp-icon-measure-length {
+    background-image: url(font-awesome/svg/minus18.svg) !important;
+}
+
+.x-btn .gxp-icon-measure-area, .x-menu-item .gxp-icon-measure-area, .x-tree-node .gxp-icon-measure-area {
+    background-image: url(font-awesome/svg/check29.svg) !important;
+}
+
+/* gxp_panmap */
+.x-btn .gxp-icon-pan, .x-tree-node .gxp-icon-pan {
+    background-image: url(font-awesome/svg/move14.svg) !important;
+}
+
+/* gxp_print */
+.x-btn .gxp-icon-print, .x-menu-item .gxp-icon-print, .x-tree-node .gxp-icon-print {
+    background-image: url(font-awesome/svg/printing1.svg);
+}
+
+/* gxp_removelayer */
+.x-btn .gxp-icon-removelayers, .x-menu-item .gxp-icon-removelayers, .x-tree-node .gxp-icon-removelayers, .x-btn .delete {
+    background-image: url(font-awesome/svg/minus20.svg) !important;
+}
+
+/* gxp_wmsgetfeatureinfo */
+.x-btn .gxp-icon-getfeatureinfo, .x-menu-item .gxp-icon-getfeatureinfo, .x-tree-node .gxp-icon-getfeatureinfo {
+    background-image: url(font-awesome/svg/information35.svg) !important;
+}
+
+/* gxp_zoombox */
+.x-btn .gxp-icon-zoom, .x-tree-node .gxp-icon-zoom {
+    background-image: url(font-awesome/svg/search19.svg) !important;
+}
+
+/* gxp_zoomto */
+.x-btn .gxp-icon-zoom-to, .x-menu-item .gxp-icon-zoom-to, .x-tree-node .gxp-icon-zoom-to {
+    background-image: url(font-awesome/svg/search19.svg) !important;
+}
+
+/* gxp_zoomtoextent */
+.x-btn .gxp-icon-zoomtoextent, .x-tree-node .gxp-icon-zoomtoextent {
+    background-image: url(font-awesome/svg/fullscreen4.svg) !important;
+}
+
+/* OpenLayers overrides */
+div.olControlZoom a:hover, div.olControlTextButtonPanel .olButton:hover {
+    background: none repeat scroll 0 0 rgba(154, 205, 50, 1);
+}
+
+div.olControlZoom a, div.olControlTextButtonPanel .olButton {
+    background: none repeat scroll 0 0 rgba(0, 100, 0, 1);
+    color: white;
+    display: block;
+    font-family: 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin: 1px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Application css */
+/* app_streetview */
+.x-btn .icon-eye-open, .x-menu-item .icon-eye-open, .x-tree-node .icon-eye-open {
+    background-image: url(font-awesome/svg/eye50.svg) !important;
+    background-size: 24px;
+}
+
+.olControlAttribution {
+    text-align: right;
+    font-size: 9px;
+    bottom: 2px;
+}
+
+#logo {
+    background-image: url(img/JET_gis_portal_logo.jpg);
+    background-repeat: no-repeat;
+    width: 55px !important;
+    height: 55px !important;
+}
+
+#title {
+    background-color: #9ACD32;
+    color: #e7e7e7;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+#headnav {
+    background: none repeat scroll 0 0 #006400;
+    position: absolute;
+    margin: 0;
+    right: 0px;
+    top: 0px;
+    padding: 4px;
+    font-size: 11px;
+    border-bottom-left-radius: 5px;
+}
+
+#headnav a, #footer a {
+    margin: 0px 4px 0px 12px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#headnav a:hover, #footer a:hover {
+    color: #9ACD32;
+}
+
+/* Login css */
+#message-form {
+    border: 2px solid #006400;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    overflow: hidden;
+    width: 400px;
+    position: relative;
+    margin: 4% auto 0 auto;
+}
+#message-form h2 {
+    background: none repeat scroll 0 0 #9ACD32;
+    color: #fff;
+    font-size: 17px;
+    padding: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+#message-form fieldset {
+    border: none;
+    padding: 15px;
+}
+#message-form input, p {
+    display: block;
+    width: 99%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#message-form p {
+    font-size: 12px;
+    text-align: justify;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+}
+#message-form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #006400;
+    border: 1px solid #e7e7e7;
+    transition: all 0.5s;
+}
+#message-form .error {
+    display: none;
+    color: #ff0000;
+    font-weight: bold;
+}
+#loginButton:active {
+    position:relative;top: 1px;left:1px;
+}
+
+@media screen and (max-width: 600px) {
+
+    body {
+        font-size: 11px;
+    }
+
+    button, input, select, textarea {
+        font-size: 11px;
+    }
+
+    #groupNavigate {
+        display: none;
+    }
+
+    #message-form {
+        border: none;
+        border-radius: none;
+        width: 100%;
+    }
+    #message-form h2 {
+        display: none;
+        visibility: false;
+    }
+}

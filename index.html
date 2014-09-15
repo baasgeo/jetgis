@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joplin GIS Data Viewer</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <!-- Ext resources -->
+    <link rel="stylesheet" type="text/css" href="src/ext/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="src/ext/resources/css/xtheme-gray.css">
+    <!-- TODO: replace debug libraries with minified ones -->
+    <script type="text/javascript" src="src/ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="src/ext/ext-all.js"></script>
+
+    <!-- OpenLayers resources -->
+    <link rel="stylesheet" type="text/css" href="src/openlayers/theme/default/style.css">
+
+    <!-- gxp resources -->
+    <link rel="stylesheet" type="text/css" href="src/gxp/theme/all.css">
+
+
+    <!-- app resources -->
+    <link rel="stylesheet" type="text/css" href="theme/app/style.css">
+    <script type="text/javascript" src="lib/GeoAtlas.js"></script>
+    <script>
+        Ext.onReady(function () {
+            if (document.cookie.indexOf("joplinagreed") >= 0) {
+                app = new GeoAtlas({
+                    //mapUrl: 'http://gis.tristate-engineering.com:8080/geoexplorer/maps/1',
+                    mapUrl: '../geoatlas/maps/39',
+                    //mapUrl: 'testconfig.json',
+                    //mapUrl: 'testconfiglite.json',
+                    about: {
+                        title: "Tristate beta viewer",
+                        abstract: "This is a demonstration of GeoAtlas, an application for assembling and publishing web based maps.",
+                        contact: "info@baasgeo.com"
+                    },
+                    proxy: "proxy/?url=",
+                    // layer sources
+                    defaultSourceType: "gxp_wmscsource",
+                    sources: {
+                        local: {
+                            ptype: "gxp_wmscsource",
+                            url: "/geoserver/wms",
+                            //url: "http://demo.geoatlas.nl/geoserver/wms",
+                            projection: "EPSG:3857",
+                            version: "1.1.1"
+                        },
+                        osm: {
+                            ptype: "gxp_osmsource",
+                            projection: "EPSG:3857"
+                        },
+                        bing: {
+                            ptype: "gxp_bingsource",
+                            projection: "EPSG:3857"
+                        },
+                        google: {
+                            ptype: "gxp_googlesource",
+                            projection: "EPSG:3857"
+                        }
+                    },
+                    // map and layers
+                    map: {
+                        id: "mymap", // id needed to reference map in portalConfig above
+                        projection: "EPSG:3857",
+                        controls: [
+                            //new OpenLayers.Control.ZoomToMaxExtent(),
+                            //new OpenLayers.Control.Zoom(),
+                            //new OpenLayers.Control.Attribution(),
+                            new OpenLayers.Control.Navigation(),
+                            new OpenLayers.Control.TouchNavigation({dragPanOptions: {enableKinetic: true}})
+                        ],
+                        layers: [
+                            {
+                                source: "google",
+                                name: "HYBRID",
+                                title: "Google Hybrid",
+                                visibility: true,
+                                opacity: 1,
+                                group: "background",
+                                fixed: true,
+                                selected: false,
+                                format: "image/png",
+                                tiled: true
+                            },
+                            {
+                                source: "local",
+                                name: "joplingis:tornado_path_joplin_06_2011",
+                                title: "Tornado Path (Joplin 06-2011)",
+                                visibility: true,
+                                opacity: 1,
+                                selected: false
+                            }
+                        ],
+                        items: [
+                            {
+                                xtype: "app_zoomcontrol",
+                                zoomWheelEnabled: true
+                            }
+                        ],
+                        center: [
+                            -10520372.969717,
+                            4448622.9220876
+                        ],
+                        zoom: 13
+                    }
+                });
+            } else {
+                window.location.replace("login.html");
+            }
+        });
+
+    </script>
+</head>
+<body></body>
+</html>
