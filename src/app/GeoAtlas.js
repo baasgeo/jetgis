@@ -117,7 +117,6 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
         this.on(
             "portalready", function () {
                 window.document.title = this.about.title || 'GeoAtlas';
-                this.fireEvent("startlogintimer", this);
             }, this);
     },
 
@@ -294,7 +293,7 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
             {
                 actionTarget: "map",
                 ptype: "app_logincontrol",
-                timeout: 10 // TODO: reset to normal value
+                timeout: 15
             },
             {
                 ptype: "app_googlegeocoder",

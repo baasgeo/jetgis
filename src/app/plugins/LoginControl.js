@@ -18,12 +18,12 @@ gxp.plugins.LoginControl = Ext.extend(gxp.plugins.Tool, {
 
     ptype: "app_logincontrol",
     timeoutID: null,
-    timeout: 10, // 10 minutes
+    timeout: 15, // 15 minutes
 
     addActions: function () {
         var map = this.target.mapPanel.map;
         this.bind(map);
-        this.target.on("startlogintimer", this.setupTimer, this);
+        this.target.on("ready", this.setupTimer, this);
         this.on("beforedestroy", this.unbind, this);
     },
 
