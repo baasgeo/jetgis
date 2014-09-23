@@ -40,7 +40,6 @@
  *
  * Custom tools
  * @require GeoAtlas.js
- * @require Login.js
  * @require plugins/GoogleGeocoder.js
  * @require plugins/LoginControl.js
  * @require plugins/OpenLayers.Control.Legend.js
@@ -105,8 +104,6 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
     toggleGroup: "toolGroup",
 
     constructor: function (config) {
-
-        console.log("constructor...");
 
         if (config.portalConfig == null) {
             config.portalConfig = new this.setPortalConfig();
@@ -307,7 +304,6 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
     },
 
     loadConfig: function (config) {
-        console.log('loadconfig...');
         if (config.mapUrl) {
             Ext.Ajax.request({
                 url: config.mapUrl,

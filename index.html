@@ -2,10 +2,10 @@
 <html>
 <head>
     <title>Joplin GIS Data Viewer</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
     <link rel="shortcut icon" href="./favicon.ico">
 
@@ -22,7 +22,6 @@
     <!-- gxp resources -->
     <link rel="stylesheet" type="text/css" href="src/gxp/theme/all.css">
 
-
     <!-- app resources -->
     <link rel="stylesheet" type="text/css" href="theme/app/style.css">
     <script type="text/javascript" src="lib/GeoAtlas.js"></script>
@@ -30,10 +29,8 @@
         Ext.onReady(function () {
             if (document.cookie.indexOf("joplinagreed") >= 0) {
                 app = new GeoAtlas({
-                    //mapUrl: 'http://gis.tristate-engineering.com:8080/geoexplorer/maps/1',
-                    mapUrl: '../geoatlas/maps/39',
-                    //mapUrl: 'testconfig.json',
                     //mapUrl: 'testconfiglite.json',
+                    mapUrl: '/geoexplorer/maps/1',
                     about: {
                         title: "Tristate beta viewer",
                         abstract: "This is a demonstration of GeoAtlas, an application for assembling and publishing web based maps.",
@@ -102,6 +99,7 @@
                                 zoomWheelEnabled: true
                             }
                         ],
+                        restrictedExtent: [-10532740, 4434513, -10506642, 4458932],
                         center: [
                             -10520372.969717,
                             4448622.9220876
