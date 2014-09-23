@@ -167,8 +167,8 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
                     bbar: [
                         {xtype: 'container',
                             html: "<a href='javascript:history.go(0)'>" +
-                            "<div id='logo'></div>" +
-                            "</a>"},
+                                "<div id='logo'></div>" +
+                                "</a>"},
                         MapView,
                         Information,
                         Navigate,
@@ -441,6 +441,9 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
             url: "/geoserver/j_spring_security_logout?",
             method: "POST",
             success: function () {
+                window.location.replace("login.html");
+            },
+            failure: function () {
                 window.location.replace("login.html");
             }
         });
