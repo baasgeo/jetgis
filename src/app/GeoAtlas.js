@@ -271,7 +271,7 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
             {
                 ptype: "app_wmsgetfeatureinfo_dialog",
                 layerParams: ["CQL_FILTER"],
-                vendorParams: {buffer: 10},
+                vendorParams: {buffer: 15},
                 toggleGroup: "info",
                 showButtonText: true,
                 outputTarget: "eastpanel",
@@ -303,6 +303,7 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
     },
 
     loadConfig: function (config) {
+
         if (config.mapUrl) {
             Ext.Ajax.request({
                 url: config.mapUrl,
