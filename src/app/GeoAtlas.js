@@ -161,7 +161,6 @@ var GeoAtlas = Ext.extend(gxp.Viewer, {
                     html: "<div id='title'>Joplin GIS Data Viewer</div>" +
                         "<div id='headnav'>" +
                         "<a href='#' onclick='app.displayAppInfo(); return false;'>Info</a>" +
-                        "<a href='mailto:info@baasgeo.com?subject=GeoAtlas'>Contact</a>" +
                         "<a href='#' id='login-link' onclick='app.logout(); return false;'>Logout</a>" +
                         "</div>",
                     bbar: [
